@@ -1,0 +1,11 @@
+.icon__inner {
+    display: flex;
+    align-items: center;
+
+    svg {
+        width: 1em;
+        height: 1em;
+    }
+
+    fill: currentColor;
+}

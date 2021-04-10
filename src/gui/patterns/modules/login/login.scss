@@ -1,0 +1,29 @@
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    background-color: rgba($color-black, .7);
+    color: $color-white;
+    padding: 30px;
+    width: 320px;
+    transition: opacity $transition-duration $transition-easing;
+}
+
+.login__button {
+    margin-top: 15px;
+}
+
+.login-form__label {
+    display: block;
+    width: 100%;
+}
+
+.login__subtitle {
+    color: $color-green;
+}
+
+.login__form {
+    margin-top: 50px;
+}

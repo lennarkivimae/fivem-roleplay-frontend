@@ -1,0 +1,35 @@
+.funds {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: $color-white;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    background-color: rgba($color-black, .7);
+}
+
+.funds__row {
+    display: flex;
+    width: 50%;
+    padding: 15px;
+}
+
+.funds__bank {
+    display: flex;
+    width: 50%;
+}
+
+.funds__title {
+    font-weight: $font-weight-bold;
+    margin-right: 15px;
+}
+
+.funds__amount {
+    color: $color-green;
+
+    &:after {
+        content: '$';
+        margin-left: 5px;
+    }
+}

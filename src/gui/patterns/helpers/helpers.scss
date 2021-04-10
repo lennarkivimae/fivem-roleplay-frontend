@@ -1,0 +1,9 @@
+.h-visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.h-hidden {
+    opacity: 0;
+    pointer-events: none;
+}

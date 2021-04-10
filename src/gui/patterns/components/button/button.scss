@@ -1,0 +1,13 @@
+.button {
+    cursor: pointer;
+    padding: 10px 30px 10px 30px;
+    background-color: transparent;
+    border: 1px solid $color-white;
+    color: $color-white;
+    transition: background-color $transition-duration $transition-easing;
+    text-align: center;
+
+    &:hover {
+        background-color: $color-gray;
+    }
+}

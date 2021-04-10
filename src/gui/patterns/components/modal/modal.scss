@@ -1,0 +1,64 @@
+.modal {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba($color-black, .7);
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: $transition-duration ease-in-out;
+
+    &.is-open {
+        max-height: 500px;
+    }
+
+    &.is-flash {
+        animation-name: flash;
+        animation-duration: 3s;
+    }
+}
+
+.modal__title {
+    color: $color-green;
+}
+
+.modal__icon {
+    font-size: 48px;
+    padding: 16px 0;
+
+    &:not(:last-child) {
+        margin-right: 24px;
+    }
+
+    &:not(:first-child) {
+        margin-left: 24px;
+    }
+}
+
+.modal__container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+}
+
+@keyframes flash {
+
+    0% {
+        max-height: 0;
+    }
+
+    40% {
+        max-height: 500px;
+    }
+
+    100% {
+        max-height: 0;
+    }
+}
