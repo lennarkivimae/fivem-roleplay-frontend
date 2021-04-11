@@ -13,6 +13,7 @@ interface INavigationData {
 interface INavigationItem {
     title: string;
     items?: INavigationItem[];
+    onClick?: ((event: React.MouseEvent) => void);
 }
 
 const Navigation = (props: INavigationProps): JSX.Element => {
@@ -63,14 +64,14 @@ const Navigation = (props: INavigationProps): JSX.Element => {
                         data.items.map((item: INavigationItem, itemIndex: number) => {
                             const lowerCaseItemTitle: string = item.title.toLowerCase();
 
-                            return <li key={`navigation-item-${itemIndex}`} className={`navigation__item ${openedTab === lowerCaseItemTitle ? 'is-open' : ''}`} data-tab={`${lowerCaseItemTitle}`} onClick={openTab}>
+                            return <li key={`navigation-item-${itemIndex}`} className={`navigation__item ${openedTab === lowerCaseItemTitle ? 'is-open' : ''}`} data-tab={`${lowerCaseItemTitle}`} onClick={item.onClick ? item.onClick : openTab}>
                                 { item.title }
                                 {
                                     item.items &&
                                     <ul key={`navigation-item-sublist-${itemIndex}`} className={'navigation__sublist'} style={{ maxHeight: sublistHeight }}>
                                         {
                                             item.items.map((subItem: INavigationItem, subItemIndex: number) => {
-                                                return <li key={`navigation-item-sublist-${subItemIndex}`} className={'navigation__item'} data-tab={`${subItem.title.toLowerCase()}`}>
+                                                return <li key={`navigation-item-sublist-${subItemIndex}`} className={'navigation__item'} data-tab={`${subItem.title.toLowerCase()}`} onClick={subItem.onClick}>
                                                     { subItem.title }
                                                 </li>
                                             })

@@ -1,62 +1,64 @@
-/*
 import React, {useState} from 'react';
 import Navigation from '../../components/navigation/navigation';
+import __ from '../../translations';
+import Textfield from '../../components/textfield/textfield';
+import Button from '../../components/button/button';
 
-interface IProps {
-    class: string,
-    modifier: string,
-    data: IAdminPanelData
+interface IAdminPanelProps {
+    class: string;
+    modifier: string;
+    lang?: string;
 }
 
-export interface IAdminPanelData {
-    panels?: IPanelData[]
-}
+const AdminPanel = (props: IAdminPanelProps): JSX.Element => {
+    const [activePanel, setActivePanel] = useState('');
 
-interface IPanelData {
-    panel: string,
-    items: IPanelItems[]
-}
+    function changePanel(event: React.MouseEvent): void {
+        event.preventDefault();
 
-interface IPanelItems {
-    text: string,
-    icon?: string
-}
+        const newActivePanel: string = event.currentTarget.getAttribute('data-tab');
 
-const AdminPanel = (props: IProps): React.ReactElement => {
-    const [activeTab, setActiveTab] = useState('main');
-
-    function clickHandler(event: React.MouseEvent): void {
-        const targetTab: string = event.currentTarget.getAttribute('data-activatepanel');
-
-        if (targetTab && targetTab === 'back') {
-            setActiveTab('main');
-
-            return;
-        }
-
-        setActiveTab(targetTab);
+        setActivePanel(newActivePanel);
     }
 
     return (
-        <div className={`admin-panel`}>
-            {
-                props.data.panels &&
-                props.data.panels.map((item: IPanelData, index: number) => {
-                    return <div className="admin-panel-navigation__outer" key={'admin-panel__navigation' + index}>
-                        <Navigation
-                            class="admin-panel__navigation"
-                            modifier=""
-                            panel={item.panel}
-                            isShown={item.panel === activeTab}
-                            data={{ items: item.items }}
-                            onClick={clickHandler} />
-                    </div>
-                })
+        <div className={`admin-panel ${props.class} ${props.modifier}`}>
+            <Navigation class={'admin-panel__navigation'} modifier={''} data={{
+                items: [
+                    {
+                        title: 'Spawn',
+                        items: [
+                            {
+                                title: 'Vehicle'
+                            },
+                            {
+                                title: 'Event'
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Ban',
+                        onClick: changePanel,
+                    },
+                    {
+                        title: 'Kick'
+                    }
+                ]
+            }} />
 
-            }
+            <div className={`admin-panel__panel ${activePanel === 'ban' ? 'is-active' : ''}`}>
+                <h2 className={'admin-panel__panel-title'}>
+                    {
+                        __('Ban player', props.lang)
+                    }
+                </h2>
+                <div className={'admin-panel__inner'}>
+                    <Textfield class={'admin-panel-inner__player-id'} modifier={''} type={'text'} />
+                    <Button class={'admin-panel-inner__submit'} modifier={''}>{ __('Ban', props.lang)}</Button>
+                </div>
+            </div>
         </div>
     );
 }
 
 export default AdminPanel;
-*/

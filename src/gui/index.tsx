@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import config from './patterns/components/navigation/navigation.config';
-import Navigation from './patterns/components/navigation/navigation';
+import config from './patterns/modules/admin-panel/admin-panel.config';
+import AdminPanel from './patterns/modules/admin-panel/admin-panel';
 
 if (typeof config !== 'undefined') {
     let backgroundColor = '';
@@ -17,7 +17,7 @@ if (typeof config !== 'undefined') {
 
     ReactDOM.render(
         <div style={{ backgroundColor: backgroundColor }}>
-            <Navigation class={'page__navigation'} modifier={''} data={config.context.data} />
+            <AdminPanel class={'page__admin-panel'} modifier={''} />
         </div>,
         document.querySelector('.view'),
     );

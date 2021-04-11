@@ -6,7 +6,7 @@
 
 .navigation__item {
     user-select: none;
-    padding: 15px 0;
+    padding: 15px 30px;
     cursor: pointer;
     transition: background-color $transition-duration $transition-easing;
 
@@ -23,15 +23,15 @@
     max-height: 0;
     transition: max-height $transition-duration $transition-easing;
     overflow: hidden;
+    margin-left: -30px;
+    margin-right: -30px;
+    text-align: center;
 
     & > .navigation__item {
 
         &:first-child {
             margin-top: 15px;
         }
-
-        padding-right: 15px;
-        padding-left: 15px;
     }
 
     .navigation__item.is-open & {
