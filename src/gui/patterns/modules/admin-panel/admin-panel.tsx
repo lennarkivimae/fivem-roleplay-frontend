@@ -1,3 +1,4 @@
+/*
 import React, {useState} from 'react';
 import Navigation from '../../components/navigation/navigation';
 
@@ -22,18 +23,18 @@ interface IPanelItems {
 }
 
 const AdminPanel = (props: IProps): React.ReactElement => {
-    const [activePanel, setActivePanel] = useState('main');
+    const [activeTab, setActiveTab] = useState('main');
 
     function clickHandler(event: React.MouseEvent): void {
-        const activatedPanel: string = event.currentTarget.getAttribute('data-activatepanel');
+        const targetTab: string = event.currentTarget.getAttribute('data-activatepanel');
 
-        if (activatedPanel && activatedPanel === 'back') {
-            setActivePanel('main');
+        if (targetTab && targetTab === 'back') {
+            setActiveTab('main');
 
             return;
         }
 
-        setActivePanel(activatedPanel);
+        setActiveTab(targetTab);
     }
 
     return (
@@ -46,14 +47,16 @@ const AdminPanel = (props: IProps): React.ReactElement => {
                             class="admin-panel__navigation"
                             modifier=""
                             panel={item.panel}
-                            isPanelShown={item.panel === activePanel}
+                            isShown={item.panel === activeTab}
                             data={{ items: item.items }}
                             onClick={clickHandler} />
                     </div>
                 })
+
             }
         </div>
     );
 }
 
 export default AdminPanel;
+*/

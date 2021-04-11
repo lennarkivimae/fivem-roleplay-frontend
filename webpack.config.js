@@ -51,6 +51,8 @@ const getModules = (type) => {
 }
 
 const getPlugins = (type) => {
+  let plugins = [];
+
   if (type === 'gui') {
     plugins.push(
       new MiniCssExtractPlugin({
