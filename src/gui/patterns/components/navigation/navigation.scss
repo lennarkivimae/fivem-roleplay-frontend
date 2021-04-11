@@ -8,14 +8,17 @@
     user-select: none;
     padding: 15px 0;
     cursor: pointer;
+    transition: background-color $transition-duration $transition-easing;
 
-    &:not(:last-child) {
-        padding-bottom: 0;
+    &:hover {
+
+        &:not(.is-open) {
+            background-color: $color-green;
+        }
     }
 }
 
 .navigation__sublist {
-    padding: 0 15px;
     pointer-events: none;
     max-height: 0;
     transition: max-height $transition-duration $transition-easing;
@@ -23,9 +26,12 @@
 
     & > .navigation__item {
 
-        &:last-child {
-            padding-bottom: 0;
+        &:first-child {
+            margin-top: 15px;
         }
+
+        padding-right: 15px;
+        padding-left: 15px;
     }
 
     .navigation__item.is-open & {

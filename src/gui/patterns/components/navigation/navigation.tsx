@@ -23,14 +23,16 @@ const Navigation = (props: INavigationProps): JSX.Element => {
 
     function openTab(event: React.MouseEvent): void {
         const targetedTab: string = event.currentTarget.getAttribute('data-tab');
+        const sublist: HTMLElement = event.currentTarget.querySelector('.navigation__sublist');
+        setOpenedTab('');
+        updateSublistHeight(sublist);
 
-        updateSublistHeight(event.currentTarget as HTMLElement);
-        setOpenedTab(targetedTab);
+        if (sublist) {
+            setOpenedTab(targetedTab);
+        }
     }
 
-    function updateSublistHeight(parent: HTMLElement) {
-        const sublist: HTMLElement = parent.querySelector('.navigation__sublist');
-
+    function updateSublistHeight(sublist: HTMLElement) {
         setSublistHeight(0);
 
         if (sublist) {
@@ -68,7 +70,7 @@ const Navigation = (props: INavigationProps): JSX.Element => {
                                     <ul key={`navigation-item-sublist-${itemIndex}`} className={'navigation__sublist'} style={{ maxHeight: sublistHeight }}>
                                         {
                                             item.items.map((subItem: INavigationItem, subItemIndex: number) => {
-                                                return <li key={`navigation-item-sublist-${subItemIndex}`} className={'navigation__item'}>
+                                                return <li key={`navigation-item-sublist-${subItemIndex}`} className={'navigation__item'} data-tab={`${subItem.title.toLowerCase()}`}>
                                                     { subItem.title }
                                                 </li>
                                             })
