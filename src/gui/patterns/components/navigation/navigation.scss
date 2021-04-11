@@ -16,10 +16,10 @@
 
 .navigation__sublist {
     padding: 0 15px;
-    opacity: 0;
     pointer-events: none;
     max-height: 0;
-    transition: $transition-duration $transition-easing;
+    transition: max-height $transition-duration $transition-easing;
+    overflow: hidden;
 
     & > .navigation__item {
 
@@ -34,45 +34,3 @@
         max-height: 100%;
     }
 }
-
-/*
-.navigation {
-    width: 100%;
-    background-color: rgba($color-black, .7);
-    color: $color-white;
-    transition: $transition-duration $transition-easing;
-    transition-property: opacity, width, height;
-
-    &.is-hidden {
-        height: 0;
-        width: 0;
-        opacity: 0;
-        pointer-events: none;
-    }
-}
-
-.navigation__icon {
-    font-size: 24px;
-    margin-right: 8px;
-}
-
-.navigation__items {
-    padding: 15px 0;
-}
-
-.navigation__item {
-    display: flex;
-    align-items: center;
-    padding: 15px 30px;
-    user-select: none;
-    transition: background-color $transition-duration $transition-easing;
-
-    &:hover {
-        background-color: rgba($color-green, .7);
-    }
-
-    &.is-current {
-        background-color: $color-green;
-    }
-}
-*/
