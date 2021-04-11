@@ -1,33 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './page.scss';
-import AdminPanel from './patterns/modules/admin-panel/admin-panel';
+import './index.scss';
+import config from './patterns/components/navigation/navigation.config';
+import Navigation from './patterns/components/navigation/navigation';
 
-ReactDOM.render(
-    <AdminPanel class={'page-pane'} modifier={''} data={
-        {
-            panels: [
-                {
-                    panel: 'main',
-                    items: [
-                        {
-                            text: 'Spawn'
-                        }
-                    ]
-                },
-                {
-                    panel: 'spawn',
-                    items: [
-                        {
-                            text: 'Back'
-                        },
-                        {
-                            text: 'Go spawn stuff'
-                        }
-                    ]
-                }
-            ]
+if (typeof config !== 'undefined') {
+    let backgroundColor = '';
+
+    if (typeof config.meta !== 'undefined') {
+        if (typeof config.meta.display !== 'undefined') {
+            if (typeof config.meta.display.background !== 'undefined') {
+                backgroundColor = config.meta.display.background;
+            }
         }
-    }/>,
-    document.querySelector('.view'),
-);
+    }
+
+    ReactDOM.render(
+        <div style={{ backgroundColor: backgroundColor }}>
+            <Navigation class={'page__navigation'} modifier={''} data={config.context.data} />
+        </div>,
+        document.querySelector('.view'),
+    );
+} else {
+    ReactDOM.render(
+        <div>todo</div>,
+        document.querySelector('.view'),
+    );
+}
+
