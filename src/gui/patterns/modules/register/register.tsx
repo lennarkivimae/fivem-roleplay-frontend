@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../../components/button/button';
-import Textfield from '../../components/textfield/textfield';
+import Textfield from '../../components/formfields/textfield';
 import Helpers from '../../helpers/helpers';
 import __ from '../../translations';
 

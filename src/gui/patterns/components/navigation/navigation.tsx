@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 interface INavigationProps {
     class: string;
@@ -54,6 +54,21 @@ const Navigation = (props: INavigationProps): JSX.Element => {
 
         return maxHeight;
     }
+
+    const closeDropdowns = useCallback((event: React.KeyboardEvent) => {
+        if (event.key === 'Escape') {
+            setOpenedTab('');
+            setSublistHeight(0);
+        }
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener('keyup', closeDropdowns);
+
+        return () => {
+            window.removeEventListener('keyup', closeDropdowns);
+        }
+    }, [closeDropdowns]);
 
     return (
         <div className={`navigation ${props.class} ${props.modifier}`}>

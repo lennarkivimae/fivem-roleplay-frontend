@@ -1,5 +1,7 @@
 @import './button/button';
-@import './textfield/textfield';
+@import 'src/gui/patterns/components/formfields/textfield';
+@import 'src/gui/patterns/components/formfields/textarea/textarea';
 @import './navigation/navigation';
 @import './icon/icon';
 @import './modal/modal';
+@import './panel/panel';

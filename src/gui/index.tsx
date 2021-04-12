@@ -16,7 +16,7 @@ if (typeof config !== 'undefined') {
     }
 
     ReactDOM.render(
-        <div style={{ backgroundColor: backgroundColor }}>
+        <div style={{ backgroundColor: backgroundColor, width: '100%', height: '100%', overflow: 'hidden' }}>
             <AdminPanel class={'page__admin-panel'} modifier={''} />
         </div>,
         document.querySelector('.view'),

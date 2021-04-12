@@ -1,0 +1,36 @@
+.panel {
+    position: relative;
+    background-color: rgba($color-black, .7);
+    color: $color-white;
+    padding: 31px;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: $transition-duration $transition-easing;
+    transition-property: max-height, opacity;
+    overflow: hidden;
+    min-width: 600px;
+
+    &.is-active {
+        opacity: 1;
+        max-height: 600px;
+        pointer-events: all;
+        transition-property: max-height;
+    }
+}
+
+.panel__inner {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+
+    > * + * {
+        margin-top: 15px;
+    }
+}
+
+.panel-inner__submit {
+    margin-top: 15px;
+    max-width: 120px;
+    align-self: flex-end;
+}

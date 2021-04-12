@@ -16,7 +16,14 @@ const translations: ITranslations = {
         'password': 'Password',
         'password-confirmation': 'Password confirmation',
         'this-username-is-not-registered-yet': 'This username is not registered yet',
-        'register': 'Register'
+        'register': 'Register',
+        'ban': 'Ban',
+        'ban-player': 'Ban player',
+        'kick': 'Kick',
+        'kick-player': 'Kick player',
+        'player-id': 'Player ID',
+        'reason': 'Reason',
+        'enter-a-reason': 'Enter a reason'
     },
     et: {
         'cash': 'Sula',
@@ -27,7 +34,14 @@ const translations: ITranslations = {
         'password': 'Parool',
         'password-confirmation': 'Kinnita parool',
         'this-username-is-not-registered-yet': 'See kasutaja nimi ei ole veel registreeritud',
-        'register': 'Registreeri'
+        'register': 'Registreeri',
+        'ban': 'Bänni',
+        'ban-player': 'Bänni mängija',
+        'kick': 'Löö',
+        'kick-player': 'Löö mängija mängust välja',
+        'player-id': 'Mängija ID',
+        'reason': 'Põhjus',
+        'enter-a-reason': 'Sisesta põhjus'
     }
 };
 

@@ -2,6 +2,7 @@
     position: absolute;
     color: $color-white;
     left: 0;
+    display: inline-flex;
 }
 
 .admin-panel__navigation {
@@ -10,33 +11,5 @@
 
 .admin-panel__panel {
     position: absolute;
-    background-color: rgba($color-black, .7);
-    color: $color-white;
-    padding: 30px;
-    max-height: 0;
-    width: 100%;
-    top: 0;
     left: 200px;
-    opacity: 0;
-    pointer-events: none;
-    transition: max-height $transition-duration $transition-easing;
-    overflow: hidden;
-
-    &.is-active {
-        opacity: 1;
-        max-height: 400px;
-        pointer-events: all;
-    }
-}
-
-.admin-panel__inner {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-}
-
-.admin-panel-inner__submit {
-    margin-top: 15px;
-    max-width: 120px;
-    align-self: flex-end;
 }
