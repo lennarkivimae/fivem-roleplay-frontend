@@ -2,6 +2,8 @@ import React, {useCallback, useEffect, useState} from 'react';
 import Navigation from '../../components/navigation/navigation';
 import PanelBan from '../../components/panel/panel--ban';
 import PanelKick from '../../components/panel/panel--kick';
+import PanelSpawnVehicle from '../../components/panel/panel--spawn-vehicle';
+import PanelSpawnWeapon from '../../components/panel/panel--spawn-weapon';
 
 interface IAdminPanelProps {
     class: string;
@@ -49,10 +51,12 @@ const AdminPanel = (props: IAdminPanelProps): JSX.Element => {
                         title: 'Spawn',
                         items: [
                             {
-                                title: 'Vehicle'
+                                title: 'Vehicle',
+                                onClick: changePanel
                             },
                             {
-                                title: 'Event'
+                                title: 'Weapon',
+                                onClick: changePanel
                             }
                         ]
                     },
@@ -68,6 +72,8 @@ const AdminPanel = (props: IAdminPanelProps): JSX.Element => {
             }} />
             <PanelBan class={`admin-panel__panel ${activePanel === 'ban' ? 'is-active' : ''}`} modifier={'panel--ban'} lang={props.lang} tabId = {'ban'} onChange={tempChange}/>
             <PanelKick class={`admin-panel__panel ${activePanel === 'kick' ? 'is-active' : ''}`} modifier={'panel--kick'} lang={props.lang} tabId = {'kick'} onChange={tempChange}/>
+            <PanelSpawnVehicle class={`admin-panel__panel ${activePanel === 'vehicle' ? 'is-active' : ''}`} modifier={'panel--spawn-vehicle'} tabId={'vehicle'} lang={props.lang} onChange={tempChange} />
+            <PanelSpawnWeapon class={`admin-panel__panel ${activePanel === 'weapon' ? 'is-active' : ''}`} modifier={'panel--spawn-weapon'} tabId={'weapon'} lang={props.lang} onChange={tempChange} />
         </div>
     );
 }

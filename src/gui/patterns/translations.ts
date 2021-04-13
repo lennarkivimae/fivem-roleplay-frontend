@@ -23,7 +23,10 @@ const translations: ITranslations = {
         'kick-player': 'Kick player',
         'player-id': 'Player ID',
         'reason': 'Reason',
-        'enter-a-reason': 'Enter a reason'
+        'enter-a-reason': 'Enter a reason',
+        'spawn-vehicle': 'Spawn vehicle',
+        'vehicle': 'Vehicle',
+        'spawn-weapon': 'Spawn weapon'
     },
     et: {
         'cash': 'Sula',
@@ -41,7 +44,10 @@ const translations: ITranslations = {
         'kick-player': 'Löö mängija mängust välja',
         'player-id': 'Mängija ID',
         'reason': 'Põhjus',
-        'enter-a-reason': 'Sisesta põhjus'
+        'enter-a-reason': 'Sisesta põhjus',
+        'spawn-vehicle': 'Spawn vehicle',
+        'vehicle': 'Vehicle',
+        'spawn-weapon': 'Spawn weapon'
     }
 };
 
