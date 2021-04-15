@@ -1,0 +1,30 @@
+.inventory {
+    position: relative;
+    padding-bottom: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    perspective: 300px;
+    perspective-origin: top;
+}
+
+.inventory__navigation {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin-right: 420px;
+    transform-style: preserve-3d;
+    transform: rotateY(5deg);
+    align-self: flex-start;
+
+    .navigation__item {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+.inventory__panels {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(-3deg);
+}

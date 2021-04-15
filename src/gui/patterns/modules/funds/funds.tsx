@@ -1,24 +1,26 @@
 import React, {useState} from 'react';
-import __ from '../../translations';
+import __ from '../../translate';
+import {ILangReducer} from '../../../reducers/lang';
+import {useSelector} from 'react-redux';
 
 interface IFundsProps {
     bank: number,
     cash: number
-    lang?: string;
 }
 
 const FundsModule = (props: IFundsProps): JSX.Element => {
-    const [cash, setCash] = useState(props.cash);
-    const [bank, setBank] = useState(props.bank);
+    const lang = useSelector((state: ILangReducer) => state.lang );
+    const [cash] = useState(props.cash);
+    const [bank] = useState(props.bank);
 
     return (
         <div className="funds">
             <div className="funds__row">
-                <p className="funds__title">{ __('cash', props.lang)}</p>
+                <p className="funds__title">{ __('cash', lang)}</p>
                 <p className="funds__amount">{ cash }</p>
             </div>
             <div className="funds__row">
-                <p className="funds__title">{ __('bank', props.lang) }</p>
+                <p className="funds__title">{ __('bank', lang) }</p>
                 <p className="funds__amount">{ bank }</p>
             </div>
         </div>

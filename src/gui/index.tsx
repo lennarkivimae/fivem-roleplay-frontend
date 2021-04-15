@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import config from './patterns/modules/admin-panel/admin-panel.config';
-import AdminPanel from './patterns/modules/admin-panel/admin-panel';
+import {Provider} from 'react-redux';
+import stateStore from './store/store';
+import inventoryConfig from './patterns/modules/inventory/inventory.config';
+import Inventory from './patterns/modules/inventory/inventory';
+
+// eslint-disable-next-line
+// @ts-ignore
+const config = inventoryConfig;
 
 if (typeof config !== 'undefined') {
     let backgroundColor = '';
@@ -15,15 +21,24 @@ if (typeof config !== 'undefined') {
         }
     }
 
+    /* -- Redux usage --
+        const dispatch = useDispatch();
+        dispatch(setLang('et'));
+    */
+
     ReactDOM.render(
-        <div style={{ backgroundColor: backgroundColor, width: '100%', height: '100%', overflow: 'hidden' }}>
-            <AdminPanel class={'page__admin-panel'} modifier={''} />
-        </div>,
+        <Provider store={ stateStore }>
+            <div style={{ backgroundColor: backgroundColor, width: '100%', height: '100%', overflow: 'hidden' }}>
+                <Inventory gear={config.context.data.gear} gear2={config.context.data.gear2} />
+            </div>
+        </Provider>,
         document.querySelector('.view'),
     );
 } else {
     ReactDOM.render(
-        <div>todo</div>,
+        <Provider store={ stateStore }>
+            <div>todo</div>,
+        </Provider>,
         document.querySelector('.view'),
     );
 }

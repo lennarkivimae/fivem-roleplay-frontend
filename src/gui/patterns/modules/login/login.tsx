@@ -2,10 +2,11 @@ import React from 'react';
 import Button from '../../components/button/button';
 import Textfield from '../../components/formfields/textfield';
 import Helpers from '../../helpers/helpers';
-import __ from '../../translations';
+import __ from '../../translate';
+import {ILangReducer} from '../../../reducers/lang';
+import {useSelector} from 'react-redux';
 
 interface ILoginProps {
-    lang?: string;
 }
 
 let password: string = '';
@@ -25,16 +26,18 @@ function clickHandler(event: React.MouseEvent): void {
 }
 
 const LoginModule = (props: ILoginProps): JSX.Element => {
+    const lang = useSelector((state: ILangReducer) => state.lang );
+
     return (
         <div className={`login`}>
             <div className="login__header">
-                <h2 className="login__title">{ __('welcome', props.lang) }</h2>
-                <p className="login__subtitle bold">{ __('please-log-in', props.lang) }:</p>
+                <h2 className="login__title">{ __('welcome', lang) }</h2>
+                <p className="login__subtitle bold">{ __('please-log-in', lang) }:</p>
             </div>
             <div className="login__form">
-                <label className="label login-form__label">{ __('password', props.lang) }:</label>
+                <label className="label login-form__label">{ __('password', lang) }:</label>
                 <Textfield onChange={changeHandler} class="login__textfield" modifier="" type="password" />
-                <Button onClick={clickHandler} class="login__button" modifier="">{ __('log-in', props.lang) }!</Button>
+                <Button onClick={clickHandler} class="login__button" modifier="">{ __('log-in', lang) }!</Button>
             </div>
         </div>
     );

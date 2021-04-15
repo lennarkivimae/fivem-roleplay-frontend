@@ -9,8 +9,8 @@ interface IProps {
 
 const Button = (props: IProps): JSX.Element => {
     return (
-        <button onClick={props.onClick} className={`button ${props.class}`}>
-            {props.children}
+        <button onClick={props.onClick} className={`button ${props.class} ${props.modifier}`}>
+            { props.children }
         </button>
     );
 }

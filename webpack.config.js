@@ -2,7 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 // const RemovePlugin = require('remove-files-webpack-plugin');
-// const copyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const buildPath = path.resolve(__dirname, 'dist');
 
@@ -61,6 +61,14 @@ const getPlugins = (type) => {
       new StylelintPlugin({
         files: 'src/**/*.scss',
         fix: true,
+      }),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: 'src/gui/patterns/assets',
+            to: './assets'
+          }
+        ]
       })
     );
   }

@@ -11,3 +11,13 @@
         background-color: $color-gray;
     }
 }
+
+.button--item {
+    padding: 0 15px;
+    border: none;
+    height: 100%;
+
+    &:focus {
+        outline: none;
+    }
+}

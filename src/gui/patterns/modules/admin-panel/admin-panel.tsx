@@ -4,11 +4,12 @@ import PanelBan from '../../components/panel/panel--ban';
 import PanelKick from '../../components/panel/panel--kick';
 import PanelSpawnVehicle from '../../components/panel/panel--spawn-vehicle';
 import PanelSpawnWeapon from '../../components/panel/panel--spawn-weapon';
+import {ILangReducer} from '../../../reducers/lang';
+import {useSelector} from 'react-redux';
 
 interface IAdminPanelProps {
     class: string;
     modifier: string;
-    lang?: string;
 }
 
 const AdminPanel = (props: IAdminPanelProps): JSX.Element => {
@@ -70,10 +71,10 @@ const AdminPanel = (props: IAdminPanelProps): JSX.Element => {
                     }
                 ]
             }} />
-            <PanelBan class={`admin-panel__panel ${activePanel === 'ban' ? 'is-active' : ''}`} modifier={'panel--ban'} lang={props.lang} tabId = {'ban'} onChange={tempChange}/>
-            <PanelKick class={`admin-panel__panel ${activePanel === 'kick' ? 'is-active' : ''}`} modifier={'panel--kick'} lang={props.lang} tabId = {'kick'} onChange={tempChange}/>
-            <PanelSpawnVehicle class={`admin-panel__panel ${activePanel === 'vehicle' ? 'is-active' : ''}`} modifier={'panel--spawn-vehicle'} tabId={'vehicle'} lang={props.lang} onChange={tempChange} />
-            <PanelSpawnWeapon class={`admin-panel__panel ${activePanel === 'weapon' ? 'is-active' : ''}`} modifier={'panel--spawn-weapon'} tabId={'weapon'} lang={props.lang} onChange={tempChange} />
+            <PanelBan class={`admin-panel__panel ${activePanel === 'ban' ? 'is-active' : ''}`} modifier={'panel--ban'} tabId = {'ban'} onChange={tempChange}/>
+            <PanelKick class={`admin-panel__panel ${activePanel === 'kick' ? 'is-active' : ''}`} modifier={'panel--kick'} tabId = {'kick'} onChange={tempChange}/>
+            <PanelSpawnVehicle class={`admin-panel__panel ${activePanel === 'vehicle' ? 'is-active' : ''}`} modifier={'panel--spawn-vehicle'} tabId={'vehicle'} onChange={tempChange} />
+            <PanelSpawnWeapon class={`admin-panel__panel ${activePanel === 'weapon' ? 'is-active' : ''}`} modifier={'panel--spawn-weapon'} tabId={'weapon'}  onChange={tempChange} />
         </div>
     );
 }

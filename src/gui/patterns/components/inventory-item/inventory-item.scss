@@ -1,0 +1,93 @@
+.inventory-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    background: rgba($color-black, .8);
+    color: $color-white;
+    display: flex;
+    user-select: none;
+
+    &:hover {
+
+        .item__action {
+            max-width: 80px;
+            pointer-events: all;
+        }
+    }
+
+    &.is-active {
+
+        &:before {
+            content: '';
+            width: 5px;
+            display: block;
+            background-color: $color-green;
+        }
+    }
+
+    &.inventory-item--simple {
+        width: 150px;
+        height: 150px;
+        max-width: 200px;
+        max-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px;
+    }
+}
+
+.item__image {
+    display: flex;
+    align-items: center;
+
+    & > .image__img {
+        margin: 15px 40px;
+
+        .inventory-item--simple & {
+            transform: initial;
+            margin: auto;
+        }
+    }
+}
+
+.item__details {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.item__name {
+    margin: 0 auto;
+    align-self: center;
+}
+
+.item__action {
+    max-width: 0;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    padding: 40px 0;
+    background-color: $color-green;
+    transition: $transition-duration $transition-easing;
+    transition-property: max-width, padding, background-color;
+
+    &:hover {
+        background-color: rgba($color-green, .8);
+    }
+
+    .inventory-item.is-active & {
+        background-color: $color-red;
+
+        &:hover {
+            background-color: rgba($color-red, .8);
+        }
+    }
+}
+
+.item__amount {
+    margin: 0 auto;
+    margin-top: 30px;
+}
