@@ -7,7 +7,6 @@ import {useSelector} from 'react-redux';
 interface IInventoryItemProps {
     class: string;
     modifier: string;
-    type: string;
     name?: string;
     amount?: number;
     onClick?: ((event: React.MouseEvent) => void);
@@ -38,11 +37,11 @@ const InventoryItem = (props: IInventoryItemProps): JSX.Element => {
             }
             {
                 props.amount &&
-                <p className={'item__amount'}>{ props.amount }</p>
+                <p className={'item__amount'}>x <strong>{ props.amount }</strong></p>
             }
             </div>
         </div>
     );
-}
+};
 
 export default InventoryItem;

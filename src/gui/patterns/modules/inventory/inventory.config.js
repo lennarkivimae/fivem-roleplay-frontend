@@ -1,3 +1,5 @@
+import equippedConfig from '../../components/equipped/equipped.config';
+
 const inventoryConfig = {
   meta: undefined,
   context: {
@@ -31,21 +33,7 @@ const inventoryConfig = {
           }
         ]
       },
-      gear2: {
-        weapons: [
-          {
-            name: 'smg',
-            image: 'smg',
-            type: 'primary',
-          }
-        ],
-        utility: [
-          {
-            image: 'grenade',
-            type: 'utility'
-          },
-        ]
-      }
+      equipped: equippedConfig.context.data
     }
   }
 };

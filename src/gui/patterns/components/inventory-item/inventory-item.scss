@@ -39,11 +39,18 @@
 }
 
 .item__image {
-    display: flex;
-    align-items: center;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    overflow: hidden;
+    margin: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
     & > .image__img {
-        margin: 15px 40px;
+        width: 100%;
+        height: 54px;
+        object-fit: contain;
 
         .inventory-item--simple & {
             transform: initial;
@@ -69,7 +76,7 @@
     width: 100%;
     overflow: hidden;
     pointer-events: none;
-    padding: 40px 0;
+    padding: 0;
     background-color: $color-green;
     transition: $transition-duration $transition-easing;
     transition-property: max-width, padding, background-color;

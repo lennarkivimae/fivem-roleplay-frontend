@@ -20,6 +20,7 @@ export interface IGearWeapon {
 export interface IGearUtility {
     image: string;
     type: string;
+    amount?: number;
 }
 
 const Gear = (props: IGearProps): JSX.Element => {
@@ -33,7 +34,6 @@ const Gear = (props: IGearProps): JSX.Element => {
                             return <InventoryItem key={`gear-weapon-${index}`}
                                                   class={'gear__weapon'}
                                                   modifier={''}
-                                                  type={weapon.type}
                                                   active={weapon.active}
                                                   image={weapon.image}
                                                   name={weapon.image}
@@ -51,9 +51,9 @@ const Gear = (props: IGearProps): JSX.Element => {
                             return <InventoryItem key={`gear-utility-${index}`}
                                                   class={'gear__utility'}
                                                   modifier={''}
-                                                  type={utility.type}
                                                   image={utility.image}
                                                   name={utility.image}
+                                                  amount={utility.amount}
                                                   onClick={props.changeActiveEquipment}
                             />
                         })

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import {Provider} from 'react-redux';
 import stateStore from './store/store';
+// import equippedConfig from './patterns/components/equipped/equipped.config';
+// import Equipped from './patterns/components/equipped/equipped';
 import inventoryConfig from './patterns/modules/inventory/inventory.config';
 import Inventory from './patterns/modules/inventory/inventory';
 
@@ -29,7 +31,10 @@ if (typeof config !== 'undefined') {
     ReactDOM.render(
         <Provider store={ stateStore }>
             <div style={{ backgroundColor: backgroundColor, width: '100%', height: '100%', overflow: 'hidden' }}>
-                <Inventory gear={config.context.data.gear} gear2={config.context.data.gear2} />
+                <Inventory
+                    equipped={config.context.data.equipped}
+                    gear={config.context.data.gear}
+                />
             </div>
         </Provider>,
         document.querySelector('.view'),
