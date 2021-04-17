@@ -10,23 +10,34 @@ const gearConfig = {
           active: true
         },
         {
-          name: 'smg',
-          image: 'smg',
+          name: 'carbine-rifle',
+          image: 'carbine-rifle',
           type: 'primary',
+          active: true
+        },
+        {
+          name: 'pistol',
+          image: 'pistol',
+          type: 'secondary',
+          active: true,
         }
       ],
       utility: [
         {
           image: 'grenade',
-          type: 'utility'
+          type: 'utility',
+          active: true,
+          amount: 4
         },
         {
           image: 'grenade',
-          type: 'utility'
+          type: 'utility',
+          amount: 4
         },
         {
           image: 'grenade',
-          type: 'utility'
+          type: 'utility',
+          amount: 4
         }
       ]
     }

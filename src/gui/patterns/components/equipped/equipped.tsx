@@ -13,7 +13,7 @@ interface IEquippedProps {
 
 const Equipped = (props: IEquippedProps): JSX.Element => {
     return (
-        <div className={`equipped ${props.active ? 'is-active' : ''}`} data-tab={'equipped'}>
+        <div className={`equipped ${props.class} ${props.modifier} ${props.active ? 'is-active' : ''}`} data-tab={'equipped'}>
             {
                 props.primary &&
                 <div className={'equipped__primary'}>

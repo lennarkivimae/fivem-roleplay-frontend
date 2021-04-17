@@ -21,11 +21,12 @@ export interface IGearUtility {
     image: string;
     type: string;
     amount?: number;
+    active?: boolean;
 }
 
 const Gear = (props: IGearProps): JSX.Element => {
     return (
-        <div className={`gear ${props.active ? 'is-active' : ''}`} data-tab={'gear'}>
+        <div className={`gear ${props.class} ${props.modifier} ${props.active ? 'is-active' : ''}`} data-tab={'gear'}>
             {
                 props.weapons &&
                 <div className={'gear__weapons'}>

@@ -32,12 +32,12 @@ const InventoryItem = (props: IInventoryItemProps): JSX.Element => {
                 <h3 className={'item__name'}>{ props.name }</h3>
             }
             {
-                props.onClick &&
-                <Button class={'item__action'} modifier={'button--item'} onClick={props.onClick}> {`${ activeGearItem ? __('unequip', lang) : __('equip', lang) }`} </Button>
-            }
-            {
                 props.amount &&
                 <p className={'item__amount'}>x <strong>{ props.amount }</strong></p>
+            }
+            {
+                props.onClick &&
+                <Button class={'item__action'} modifier={'button--item'} onClick={props.onClick}> {`${ activeGearItem ? __('unequip', lang) : __('equip', lang) }`} </Button>
             }
             </div>
         </div>

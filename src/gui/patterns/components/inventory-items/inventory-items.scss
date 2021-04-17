@@ -1,25 +1,26 @@
-.equipped {
+.inventory-items {
     height: 0;
     opacity: 0;
     pointer-events: none;
     transition: opacity $transition-duration $transition-easing;
     overflow: hidden;
+    max-width: 700px;
 
     &.is-active {
-        opacity: 1;
         pointer-events: all;
+        opacity: 1;
         height: initial;
     }
 }
 
-.equipped__primary,
-.equipped__secondary {
-    margin-bottom: 20px;
+.inventory-items__inner {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    margin: -5px;
 }
 
-.equipped__item {
-
-    & + & {
-        margin-top: 5px;
-    }
+.inventory-items__item {
+    flex: 0 0 25%;
+    margin: 5px;
 }
