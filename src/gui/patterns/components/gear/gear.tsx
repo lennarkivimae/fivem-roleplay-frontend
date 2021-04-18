@@ -11,15 +11,18 @@ interface IGearProps {
 }
 
 export interface IGearWeapon {
-    name: string;
+    name?: string;
     image: string;
     type: string;
+    itemId: string;
     active?: boolean;
 }
 
 export interface IGearUtility {
+    name?: string;
     image: string;
     type: string;
+    itemId: string;
     amount?: number;
     active?: boolean;
 }
@@ -35,10 +38,12 @@ const Gear = (props: IGearProps): JSX.Element => {
                             return <InventoryItem key={`gear-weapon-${index}`}
                                                   class={'gear__weapon'}
                                                   modifier={''}
+                                                  itemId={weapon.itemId}
                                                   active={weapon.active}
                                                   image={weapon.image}
                                                   name={weapon.image}
                                                   onClick={props.changeActiveEquipment}
+                                                  type={weapon.type}
                             />
                         })
                     }
@@ -52,10 +57,13 @@ const Gear = (props: IGearProps): JSX.Element => {
                             return <InventoryItem key={`gear-utility-${index}`}
                                                   class={'gear__utility'}
                                                   modifier={''}
+                                                  itemId={utility.itemId}
+                                                  active={utility.active}
                                                   image={utility.image}
                                                   name={utility.image}
                                                   amount={utility.amount}
                                                   onClick={props.changeActiveEquipment}
+                                                  type={utility.type}
                             />
                         })
                     }

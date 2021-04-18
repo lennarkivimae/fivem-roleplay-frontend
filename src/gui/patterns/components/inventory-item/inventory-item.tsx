@@ -7,6 +7,8 @@ import {useSelector} from 'react-redux';
 interface IInventoryItemProps {
     class: string;
     modifier: string;
+    itemId: string;
+    type: string;
     name?: string;
     amount?: number;
     onClick?: ((event: React.MouseEvent) => void);
@@ -19,7 +21,7 @@ const InventoryItem = (props: IInventoryItemProps): JSX.Element => {
     const lang = useSelector((state: ILangReducer) => state.lang );
 
     return (
-        <div className={`inventory-item ${props.class} ${props.modifier} ${activeGearItem ? 'is-active' : ''}`}>
+        <div className={`inventory-item ${props.class} ${props.modifier} ${activeGearItem ? 'is-active' : ''}`} data-id={props.itemId} data-item-type={props.type}>
             {
                 props.image &&
                 <div className={'image item__image'}>
@@ -29,7 +31,7 @@ const InventoryItem = (props: IInventoryItemProps): JSX.Element => {
             <div className={'item__details'}>
             {
                 props.name &&
-                <h3 className={'item__name'}>{ props.name }</h3>
+                <h3 className={'item__name'}>{ __(props.name, lang) }</h3>
             }
             {
                 props.amount &&
@@ -37,7 +39,12 @@ const InventoryItem = (props: IInventoryItemProps): JSX.Element => {
             }
             {
                 props.onClick &&
-                <Button class={'item__action'} modifier={'button--item'} onClick={props.onClick}> {`${ activeGearItem ? __('unequip', lang) : __('equip', lang) }`} </Button>
+                <Button
+                    class={'item__action'}
+                    modifier={'button--item'}
+                    onClick={props.onClick}
+                    action={activeGearItem ? 'unequip' :'equip'}
+                > {`${ activeGearItem ? __('unequip', lang) : __('equip', lang) }`} </Button>
             }
             </div>
         </div>

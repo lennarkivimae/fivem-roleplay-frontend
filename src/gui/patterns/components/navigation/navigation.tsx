@@ -1,4 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
+import {useSelector} from 'react-redux';
+import {ILangReducer} from '../../../reducers/lang';
+import __ from '../../translate';
 
 interface INavigationProps {
     class: string;
@@ -18,9 +21,10 @@ interface INavigationItem {
 
 const Navigation = (props: INavigationProps): JSX.Element => {
     const data: INavigationData = props.data;
+    const lang = useSelector((state: ILangReducer) => state.lang );
 
     const [openedTab, setOpenedTab] = useState('');
-    const [sublistHeight, setSublistHeight] = useState(0)
+    const [sublistHeight, setSublistHeight] = useState(0);
 
     function openTab(event: React.MouseEvent): void {
         const targetedTab: string = event.currentTarget.getAttribute('data-tab');
@@ -71,7 +75,7 @@ const Navigation = (props: INavigationProps): JSX.Element => {
     }, [closeDropdowns]);
 
     return (
-        <div className={`navigation ${props.class} ${props.modifier}`}>
+    <div className={`navigation ${props.class} ${props.modifier}`}>
             {
                 data.items &&
                 <ul className={'navigation__list'}>
@@ -87,7 +91,7 @@ const Navigation = (props: INavigationProps): JSX.Element => {
                                             item.onClick(event);
                                        }}
                             >
-                                { item.title }
+                                {__(item.title, lang)}
                                 {
                                     item.items &&
                                     <ul key={`navigation-item-sublist-${itemIndex}`} className={'navigation__sublist'} style={{ maxHeight: sublistHeight }}>
@@ -98,7 +102,7 @@ const Navigation = (props: INavigationProps): JSX.Element => {
                                                            data-tab={`${subItem.title.toLowerCase()}`}
                                                            onClick={subItem.onClick}
                                                 >
-                                                    { subItem.title }
+                                                    {__(subItem.title, lang)}
                                                 </li>
                                             })
                                         }

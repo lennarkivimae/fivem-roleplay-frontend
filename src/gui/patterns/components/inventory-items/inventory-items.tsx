@@ -12,6 +12,8 @@ export interface IInventorySingleItem {
     image: string;
     name: string;
     amount: number;
+    itemId: string;
+    type: string;
 }
 
 const InventoryItems = (props: IInventoryItemsProps): JSX.Element => {
@@ -27,7 +29,10 @@ const InventoryItems = (props: IInventoryItemsProps): JSX.Element => {
                             modifier={'inventory-item--simple'}
                             amount={item.amount}
                             image={item.image}
-                            name={item.name} />
+                            name={item.name}
+                            itemId={item.itemId}
+                            type={item.type}
+                        />
                     })
                 }
             </div>

@@ -23,3 +23,13 @@
         margin-top: 5px;
     }
 }
+
+.equipped__title {
+    color: $color-white;
+    padding: 18px;
+    background-color: rgba($color-black, .8);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    max-width: 600px;
+    font-weight: $font-weight-bold;
+}

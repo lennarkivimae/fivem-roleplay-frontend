@@ -1,6 +1,9 @@
 import React from 'react';
 import {IGearUtility, IGearWeapon} from '../gear/gear';
 import InventoryItem from '../inventory-item/inventory-item';
+import __ from '../../translate';
+import {useSelector} from 'react-redux';
+import {ILangReducer} from '../../../reducers/lang';
 
 interface IEquippedProps {
     class: string;
@@ -12,11 +15,14 @@ interface IEquippedProps {
 }
 
 const Equipped = (props: IEquippedProps): JSX.Element => {
+    const lang = useSelector((state: ILangReducer) => state.lang );
+
     return (
         <div className={`equipped ${props.class} ${props.modifier} ${props.active ? 'is-active' : ''}`} data-tab={'equipped'}>
             {
                 props.primary &&
                 <div className={'equipped__primary'}>
+                    <p className={'equipped__title'}>{__('primary', lang)}</p>
                     {
                         props.primary.map((weapon: IGearWeapon, index: number) => {
                             return <InventoryItem
@@ -26,6 +32,8 @@ const Equipped = (props: IEquippedProps): JSX.Element => {
                                 active={true}
                                 image={weapon.image}
                                 name={weapon.name}
+                                itemId={weapon.itemId}
+                                type={weapon.type}
                             />
                         })
                     }
@@ -34,6 +42,7 @@ const Equipped = (props: IEquippedProps): JSX.Element => {
             {
                 props.secondary &&
                 <div className={'equipped__secondary'}>
+                    <p className={'equipped__title'}>{__('secondary', lang)}</p>
                     {
                         props.secondary.map((weapon: IGearWeapon, index: number) => {
                             return <InventoryItem
@@ -43,6 +52,8 @@ const Equipped = (props: IEquippedProps): JSX.Element => {
                                 active={true}
                                 image={weapon.image}
                                 name={weapon.name}
+                                itemId={weapon.itemId}
+                                type={weapon.type}
                             />
                         })
                     }
@@ -51,6 +62,7 @@ const Equipped = (props: IEquippedProps): JSX.Element => {
             {
                 props.utility &&
                 <div className={'equipped__utility'}>
+                    <p className={'equipped__title'}>{__('utility', lang)}</p>
                     {
                         props.utility.map((utility: IGearUtility, index: number) => {
                             return <InventoryItem
@@ -60,6 +72,8 @@ const Equipped = (props: IEquippedProps): JSX.Element => {
                                 active={true}
                                 amount={utility.amount}
                                 image={utility.image}
+                                itemId={utility.itemId}
+                                type={utility.type}
                             />
                         })
                     }

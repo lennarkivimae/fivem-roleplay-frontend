@@ -29,6 +29,15 @@ const Inventory = (props: IInventoryProps): JSX.Element => {
     function changeActiveEquipment(event: React.MouseEvent): void {
         event.preventDefault();
 
+        const inventoryAction: string = event.currentTarget.getAttribute('data-button');
+        const inventoryItemId = event.currentTarget.closest('.inventory-item').getAttribute('data-id');
+
+        if (inventoryAction === 'unequip') {
+            //send item id to remove
+        } else {
+            // send item id to add
+        }
+
         return;
     }
 
@@ -55,14 +64,16 @@ const Inventory = (props: IInventoryProps): JSX.Element => {
                        currentlyEquipped.primary.push({
                            name: item.name,
                            image: item.image,
-                           type: item.type
+                           type: item.type,
+                           itemId: item.itemId
                        });
                        break;
                    case 'secondary':
                        currentlyEquipped.secondary.push({
                            name: item.name,
                            image: item.image,
-                           type: item.type
+                           type: item.type,
+                           itemId: item.itemId
                        });
                        break;
                }
@@ -74,7 +85,8 @@ const Inventory = (props: IInventoryProps): JSX.Element => {
                 currentlyEquipped.utility.push({
                     amount: item.amount,
                     image: item.image,
-                    type: item.type
+                    type: item.type,
+                    itemId: item.itemId
                 });
             }
         }
