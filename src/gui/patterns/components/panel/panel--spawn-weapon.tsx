@@ -4,6 +4,7 @@ import Textfield from '../formfields/textfield';
 import Button from '../button/button';
 import {ILangReducer} from '../../../reducers/lang';
 import {useSelector} from 'react-redux';
+import Helpers from '../../helpers/helpers';
 
 interface IPanelSpawnWeaponProps {
     class: string;
@@ -25,7 +26,12 @@ const PanelSpawnWeapon = (props: IPanelSpawnWeaponProps): JSX.Element => {
     }
 
     function sendFormData(event: React.MouseEvent) {
-        //
+        event.preventDefault();
+
+        Helpers.nuiSend('spawn-weapon', {
+            playerId,
+            weaponName
+        });
     }
 
     return (

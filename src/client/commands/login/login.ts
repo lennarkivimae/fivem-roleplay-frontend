@@ -1,12 +1,8 @@
 import Globals from "../../globals";
 import Helpers from "../../helpers/helpers";
 
-interface IPayload {
-    data: IPayloadData;
-}
-
-interface IPayloadData {
-    password: string;
+interface ILoginData {
+    password: string
 }
 
 export default class Login {
@@ -23,11 +19,9 @@ export default class Login {
     }
 
     registerNUICallback(): void {
-        Helpers.registerNuiRoute('login', (payload: IPayload) => {
-            const password: string = payload.data.password;
-
-            if (password) {
-                this.loginHandler(password);
+        Helpers.registerNuiRoute('login', (data: ILoginData) => {
+            if (data.password) {
+                this.loginHandler(data.password);
 
                 return;
             }
@@ -47,7 +41,7 @@ export default class Login {
         }
 
         if (password === undefined || password.length < 8) {
-            Helpers.sendErrorMessage('Password needs to be atleast 8 characters long');
+            Helpers.sendErrorMessage('Password needs to be at least 8 characters long');
 
             return;
         }

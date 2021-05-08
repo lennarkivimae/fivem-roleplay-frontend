@@ -4,6 +4,7 @@ import Textfield from '../formfields/textfield';
 import Button from '../button/button';
 import {useSelector} from 'react-redux';
 import {ILangReducer} from '../../../reducers/lang';
+import Helpers from '../../helpers/helpers';
 
 interface IPanelSpawnVehicleProps {
     class: string;
@@ -25,7 +26,12 @@ const PanelSpawnVehicle = (props: IPanelSpawnVehicleProps): JSX.Element => {
     }
 
     function sendFormData(event: React.MouseEvent) {
-        //
+        event.preventDefault();
+
+        Helpers.nuiSend('spawn-vehicle', {
+            playerId,
+            vehicleName
+        });
     }
 
     return (

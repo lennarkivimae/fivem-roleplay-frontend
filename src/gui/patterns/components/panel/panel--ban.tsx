@@ -5,13 +5,12 @@ import Button from '../button/button';
 import Textarea from '../formfields/textarea/textarea';
 import { useSelector } from 'react-redux';
 import { ILangReducer } from '../../../reducers/lang';
+import Helpers from '../../helpers/helpers';
 
 interface IPropsPanelBan {
     class: string;
     tabId: string;
     modifier?: string;
-    onChange?: ((event: React.FormEvent<HTMLInputElement>) => void)
-    onClick?: ((event: React.MouseEvent) => void);
 }
 
 const PanelBan = (props: IPropsPanelBan): JSX.Element => {
@@ -20,6 +19,18 @@ const PanelBan = (props: IPropsPanelBan): JSX.Element => {
 
     function changePlayerId(event: React.FormEvent<HTMLInputElement>) {
         setPlayerId(event.currentTarget.value);
+    }
+
+    function sendFormData(event: React.MouseEvent) {
+        event.preventDefault();
+
+        const panelInner: HTMLElement = (event.target as HTMLElement).parentElement;
+        const reason: string = (panelInner.querySelector('.panel-inner__reason') as HTMLInputElement).value;
+
+        Helpers.nuiSend('ban', {
+            playerId,
+            reason
+        });
     }
 
     return (
@@ -34,7 +45,7 @@ const PanelBan = (props: IPropsPanelBan): JSX.Element => {
                 <Textfield class={'panel-inner__player-id'} modifier={''} type={'number'} value={playerId} onChange={changePlayerId}/>
                 <label className={'panel-inner__label'}>{ __('reason', lang) }</label>
                 <Textarea class={'panel-inner__reason'} placeholder={__('enter-a-reason', lang)} />
-                <Button class={'panel-inner__submit'} modifier={''} onClick={props.onClick}>{ __('ban', lang)}</Button>
+                <Button class={'panel-inner__submit'} modifier={''} onClick={sendFormData}>{ __('ban', lang)}</Button>
             </div>
         </div>
     );

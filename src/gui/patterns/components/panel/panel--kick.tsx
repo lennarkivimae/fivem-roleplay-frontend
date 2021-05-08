@@ -5,6 +5,7 @@ import Button from '../button/button';
 import Textarea from '../formfields/textarea/textarea';
 import {useSelector} from 'react-redux';
 import {ILangReducer} from '../../../reducers/lang';
+import Helpers from '../../helpers/helpers';
 
 interface IPropsPanelKick {
     class: string;
@@ -21,7 +22,15 @@ const PanelKick = (props: IPropsPanelKick): JSX.Element => {
     }
 
     function sendFormData(event: React.MouseEvent) {
-        //
+        event.preventDefault();
+
+        const panelInner: HTMLElement = (event.target as HTMLElement).parentElement;
+        const reason: string = (panelInner.querySelector('.panel-inner__reason') as HTMLInputElement).value;
+
+        Helpers.nuiSend('kick', {
+            playerId,
+            reason
+        });
     }
 
     return (

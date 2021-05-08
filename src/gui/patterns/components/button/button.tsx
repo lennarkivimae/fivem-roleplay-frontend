@@ -10,7 +10,7 @@ interface IProps {
 
 const Button = (props: IProps): JSX.Element => {
     return (
-        <button onClick={props.onClick} className={`button ${props.class} ${props.modifier}`} data-button={`${props.action}`}>
+        <button onClick={props.onClick} className={`button ${props.class} ${props.modifier}`} data-action={props.action}>
             { props.children }
         </button>
     );

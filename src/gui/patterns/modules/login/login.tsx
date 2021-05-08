@@ -16,9 +16,7 @@ function clickHandler(event: React.MouseEvent): void {
     event.preventDefault();
 
     Helpers.nuiSend('login', {
-        data: {
-            password: password
-        }
+        password: password
     });
 }
 
