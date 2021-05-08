@@ -4,15 +4,8 @@ import PanelBan from '../../components/panel/panel--ban';
 import PanelKick from '../../components/panel/panel--kick';
 import PanelSpawnVehicle from '../../components/panel/panel--spawn-vehicle';
 import PanelSpawnWeapon from '../../components/panel/panel--spawn-weapon';
-import {ILangReducer} from '../../../reducers/lang';
-import {useSelector} from 'react-redux';
 
-interface IAdminPanelProps {
-    class: string;
-    modifier: string;
-}
-
-const AdminPanel = (props: IAdminPanelProps): JSX.Element => {
+const AdminPanel = (): JSX.Element => {
     const [activePanel, setActivePanel] = useState('');
 
     function changePanel(event: React.MouseEvent): void {
@@ -40,12 +33,8 @@ const AdminPanel = (props: IAdminPanelProps): JSX.Element => {
         };
     }, [closeAllTabsOnEsc]);
 
-    function tempChange() {
-        //
-    }
-
     return (
-        <div className={`admin-panel ${props.class} ${props.modifier}`}>
+        <div className={`admin-panel`}>
             <Navigation class={'admin-panel__navigation'} modifier={''} data={{
                 items: [
                     {
@@ -71,10 +60,10 @@ const AdminPanel = (props: IAdminPanelProps): JSX.Element => {
                     }
                 ]
             }} />
-            <PanelBan class={`admin-panel__panel ${activePanel === 'ban' ? 'is-active' : ''}`} modifier={'panel--ban'} tabId = {'ban'} onChange={tempChange}/>
-            <PanelKick class={`admin-panel__panel ${activePanel === 'kick' ? 'is-active' : ''}`} modifier={'panel--kick'} tabId = {'kick'} onChange={tempChange}/>
-            <PanelSpawnVehicle class={`admin-panel__panel ${activePanel === 'vehicle' ? 'is-active' : ''}`} modifier={'panel--spawn-vehicle'} tabId={'vehicle'} onChange={tempChange} />
-            <PanelSpawnWeapon class={`admin-panel__panel ${activePanel === 'weapon' ? 'is-active' : ''}`} modifier={'panel--spawn-weapon'} tabId={'weapon'}  onChange={tempChange} />
+            <PanelBan class={`admin-panel__panel ${activePanel === 'ban' ? 'is-active' : ''}`} modifier={'panel--ban'} tabId = {'ban'}/>
+            <PanelKick class={`admin-panel__panel ${activePanel === 'kick' ? 'is-active' : ''}`} modifier={'panel--kick'} tabId = {'kick'} />
+            <PanelSpawnVehicle class={`admin-panel__panel ${activePanel === 'vehicle' ? 'is-active' : ''}`} modifier={'panel--spawn-vehicle'} tabId={'vehicle'} />
+            <PanelSpawnWeapon class={`admin-panel__panel ${activePanel === 'weapon' ? 'is-active' : ''}`} modifier={'panel--spawn-weapon'} tabId={'weapon'} />
         </div>
     );
 }

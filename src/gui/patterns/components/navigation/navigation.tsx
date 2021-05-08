@@ -88,7 +88,10 @@ const Navigation = (props: INavigationProps): JSX.Element => {
                                        data-tab={`${lowerCaseItemTitle}`}
                                        onClick={(event: React.MouseEvent): void => {
                                             openTab(event);
-                                            item.onClick(event);
+
+                                            if (item.onClick) {
+                                                item.onClick(event);
+                                            }
                                        }}
                             >
                                 {__(item.title, lang)}
@@ -115,6 +118,6 @@ const Navigation = (props: INavigationProps): JSX.Element => {
             }
         </div>
     );
-}
+};
 
 export default Navigation;

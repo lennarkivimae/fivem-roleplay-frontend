@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import __ from '../../translate';
 import Textfield from '../formfields/textfield';
 import Button from '../button/button';
@@ -10,12 +10,19 @@ interface IPropsPanelKick {
     class: string;
     tabId: string;
     modifier?: string;
-    onChange?: ((event: React.FormEvent<HTMLInputElement>) => void)
-    onClick?: ((event: React.MouseEvent) => void);
 }
 
 const PanelKick = (props: IPropsPanelKick): JSX.Element => {
     const lang = useSelector((state: ILangReducer) => state.lang );
+    const [playerId, setPlayerId] = useState('0');
+
+    function changePlayerId(event: React.FormEvent<HTMLInputElement>) {
+        setPlayerId(event.currentTarget.value);
+    }
+
+    function sendFormData(event: React.MouseEvent) {
+        //
+    }
 
     return (
         <div className={`panel ${props.class} ${props.modifier}`} data-tab={props.tabId}>
@@ -26,10 +33,10 @@ const PanelKick = (props: IPropsPanelKick): JSX.Element => {
             </h2>
             <div className={'panel__inner'}>
                 <label className={'panel-inner__label'}>{ __('player-id', lang) }</label>
-                <Textfield class={'panel-inner__player-id'} modifier={''} type={'number'} value={'0'} onChange={props.onChange}/>
+                <Textfield class={'panel-inner__player-id'} modifier={''} type={'number'} value={playerId} onChange={changePlayerId} />
                 <label className={'panel-inner__label'}>{ __('reason', lang) }</label>
                 <Textarea class={'panel-inner__reason'} placeholder={__('enter-a-reason', lang)} />
-                <Button class={'panel-inner__submit'} modifier={''} onClick={props.onClick}>{ __('kick', lang)}</Button>
+                <Button class={'panel-inner__submit'} modifier={''} onClick={sendFormData}>{ __('kick', lang)}</Button>
             </div>
         </div>
     );

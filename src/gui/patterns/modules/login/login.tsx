@@ -6,9 +6,6 @@ import __ from '../../translate';
 import {ILangReducer} from '../../../reducers/lang';
 import {useSelector} from 'react-redux';
 
-interface ILoginProps {
-}
-
 let password: string = '';
 
 function changeHandler(event: React.FormEvent<HTMLInputElement>): void {
@@ -25,7 +22,7 @@ function clickHandler(event: React.MouseEvent): void {
     });
 }
 
-const LoginModule = (props: ILoginProps): JSX.Element => {
+const Login = (): JSX.Element => {
     const lang = useSelector((state: ILangReducer) => state.lang );
 
     return (
@@ -43,4 +40,4 @@ const LoginModule = (props: ILoginProps): JSX.Element => {
     );
 }
 
-export default LoginModule;
+export default Login;

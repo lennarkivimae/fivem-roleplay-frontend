@@ -6,9 +6,6 @@ import __ from '../../translate';
 import {ILangReducer} from '../../../reducers/lang';
 import {useSelector} from 'react-redux';
 
-interface IRegisterProps {
-}
-
 let password: string = '';
 let passwordConfirmation: string = '';
 
@@ -35,7 +32,7 @@ function clickHandler(event: React.MouseEvent): void {
     });
 }
 
-const RegisterModule = (props: IRegisterProps): JSX.Element => {
+const Register = (): JSX.Element => {
     const lang = useSelector((state: ILangReducer) => state.lang );
 
     return (
@@ -55,4 +52,4 @@ const RegisterModule = (props: IRegisterProps): JSX.Element => {
     );
 }
 
-export default RegisterModule;
+export default Register;

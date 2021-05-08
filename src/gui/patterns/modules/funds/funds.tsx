@@ -8,7 +8,7 @@ interface IFundsProps {
     cash: number
 }
 
-const FundsModule = (props: IFundsProps): JSX.Element => {
+const Funds = (props: IFundsProps): JSX.Element => {
     const lang = useSelector((state: ILangReducer) => state.lang );
     const [cash] = useState(props.cash);
     const [bank] = useState(props.bank);
@@ -27,4 +27,4 @@ const FundsModule = (props: IFundsProps): JSX.Element => {
     );
 }
 
-export default FundsModule;
+export default Funds;
