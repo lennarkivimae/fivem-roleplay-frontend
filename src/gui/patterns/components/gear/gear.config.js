@@ -12,7 +12,7 @@ const gearConfig = {
         },
         {
           name: 'carbine-rifle',
-          image: 'carbine-rifle',
+          image: 'carbinerifle',
           type: 'primary',
           itemId: 'carbine-1',
           active: true

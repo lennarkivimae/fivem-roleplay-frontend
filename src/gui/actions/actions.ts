@@ -9,3 +9,10 @@ export const setLang = (payload: string): IReturnObject  => {
         payload: payload
     }
 }
+
+export const setRoute = (payload: string): IReturnObject => {
+    return {
+        type: 'SET_ROUTE',
+        payload: payload
+    }
+}

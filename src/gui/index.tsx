@@ -1,48 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import {Provider} from 'react-redux';
+import {Provider, useDispatch, useSelector} from 'react-redux';
 import stateStore from './store/store';
 import inventoryConfig from './patterns/modules/inventory/inventory.config';
 import Inventory from './patterns/modules/inventory/inventory';
+import Route from './patterns/components/route/route';
+import {setRoute} from './actions/actions';
 
-// eslint-disable-next-line
-// @ts-ignore
-const config = inventoryConfig;
+const App = (): JSX.Element => {
+    /*const dispatch = useDispatch();
+    dispatch(setRoute('/'));*/
 
-if (typeof config !== 'undefined') {
-    let backgroundColor = '';
+    //eslint-disable-next-line
+    const [data, setData] = useState({} as any );
+    const [route, setRoute] = useState('/');
 
-    if (typeof config.meta !== 'undefined') {
-        if (typeof config.meta.display !== 'undefined') {
-            if (typeof config.meta.display.background !== 'undefined') {
-                backgroundColor = config.meta.display.background;
-            }
-        }
-    }
+    /*function set() {
+        setData({ inventory: inventoryConfig.context.data });
+    }*/
 
-    /* -- Redux usage --
-        const dispatch = useDispatch();
-        dispatch(setLang('et'));
-    */
-
-    ReactDOM.render(
-        <Provider store={ stateStore }>
-            <div style={{ backgroundColor: backgroundColor, width: '100%', height: '100%', overflow: 'hidden' }}>
-                <Inventory
-                    gear={config.context.data.gear}
-                    items={config.context.data.items.items}
-                />
-            </div>
-        </Provider>,
-        document.querySelector('.view'),
+    return (
+        <>
+            <Route to='inventory' current={route}>
+                {
+                    typeof data.inventory !== 'undefined' &&
+                    <Inventory
+                        gear={data.inventory.gear}
+                        items={data.inventory.items.items}
+                    />
+                }
+            </Route>
+        </>
     );
-} else {
-    ReactDOM.render(
-        <Provider store={ stateStore }>
-            <div>todo</div>,
-        </Provider>,
-        document.querySelector('.view'),
-    );
-}
+};
+
+//eslint-disable-next-line
+
+ReactDOM.render(
+    <Provider store={ stateStore }>
+        <App />
+    </Provider>,
+    document.querySelector('.view'),
+);
 

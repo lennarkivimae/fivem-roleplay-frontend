@@ -14,7 +14,6 @@ const __ = (word: string, lang?: string): string => {
     const lowerCaseWord = word.toLowerCase();
     let wordFromTranslations: string | undefined = translate.en[lowerCaseWord];
 
-
     if (typeof wordFromTranslations !== 'undefined') {
         word = wordFromTranslations;
     }

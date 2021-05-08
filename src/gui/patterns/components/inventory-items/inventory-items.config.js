@@ -11,7 +11,7 @@ const inventoryItemsConfig = {
           type: 'item'
         },
         {
-          image: 'grenade',
+          image: 'ball',
           amount: 6,
           name: 'grenade',
           itemId: 'grenade-5',
