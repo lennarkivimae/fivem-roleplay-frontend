@@ -20,13 +20,7 @@ const App = (): JSX.Element => {
     /*const dispatch = useDispatch();
     dispatch(setRoute('/'));*/
 
-    const initialDataState: IGUIData = {
-        funds: {
-            bank: 0,
-            cash: 0
-        },
-    };
-    const [data, setData] = useState( initialDataState as IGUIData );
+    const [data, setData] = useState( {} as IGUIData );
     const [route, setRoute] = useState('/');
 
     //eslint-disable-next-line
