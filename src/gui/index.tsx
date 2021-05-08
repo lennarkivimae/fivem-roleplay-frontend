@@ -33,7 +33,10 @@ const App = (): JSX.Element => {
     window.addEventListener('message', (event: any): void => {
         if (event.data.type === 'gui') {
             setRoute(event.data.route);
-            setData(event.data.data);
+            setData({
+                ...data,
+                ...event.data.data
+            });
         }
     });
 
