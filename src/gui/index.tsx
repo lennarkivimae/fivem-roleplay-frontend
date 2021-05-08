@@ -6,16 +6,10 @@ import stateStore from './store/store';
 import inventoryConfig from './patterns/modules/inventory/inventory.config';
 import Inventory from './patterns/modules/inventory/inventory';
 import Route from './patterns/components/route/route';
-import {setRoute} from './actions/actions';
 import Login from './patterns/modules/login/login';
 import Register from './patterns/modules/register/register';
 import AdminPanel from './patterns/modules/admin-panel/admin-panel';
 import Funds from './patterns/modules/funds/funds';
-
-interface IGUIPayload {
-    route: string;
-    data: IGUIData;
-}
 
 interface IGUIData {
     //eslint-disable-next-line
@@ -32,17 +26,15 @@ const App = (): JSX.Element => {
             cash: 0
         },
     };
-
     const [data, setData] = useState( initialDataState as IGUIData );
-    const [route, setRoute] = useState('admin');
+    const [route, setRoute] = useState('/');
 
-    /*function set() {
-        setData({ inventory: inventoryConfig.context.data });
-    }*/
-
-    window.addEventListener('gui', (payload: IGUIPayload) => {
-        setRoute(payload.route);
-        setData(payload.data);
+    //eslint-disable-next-line
+    window.addEventListener('message', (event: any): void => {
+        if (event.data.type === 'gui') {
+            setRoute(event.data.route);
+            setData(event.data.data);
+        }
     });
 
     return (
