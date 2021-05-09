@@ -2,7 +2,7 @@ interface IPayload {
     vehicleHash: number
 }
 
-export default class VehicleSpawn {
+export default class Vehicle {
     private data: IPayload;
 
     constructor() {
@@ -10,7 +10,7 @@ export default class VehicleSpawn {
     }
 
     init(): void {
-        onNet('clientSpawnVehicle', (data: IPayload) => {
+        onNet('/client/spawn/vehicle', (data: IPayload) => {
             this.data = data;
             this.spawnHandler();
         });

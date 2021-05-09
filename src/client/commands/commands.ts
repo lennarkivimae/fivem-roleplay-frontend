@@ -1,6 +1,3 @@
-import Login from "./login/login";
-import Register from "./register/register";
-
 export default class Commands {
     constructor() {
         this.init();
@@ -10,12 +7,5 @@ export default class Commands {
         RegisterCommand('toggleui', () => {
             SetNuiFocus(true, true);
         }, false);
-
-        this.authenticationCommands();
-    }
-
-    authenticationCommands(): void {
-        new Register;
-        new Login;
     }
 }

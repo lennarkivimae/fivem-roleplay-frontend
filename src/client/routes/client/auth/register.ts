@@ -1,12 +1,12 @@
-import Helpers from "../../helpers/helpers";
+import Helpers from "../../../helpers/helpers";
 
-export default class RegisterHandler {
+export default class Register {
     constructor() {
         this.init();
     }
 
     init(): void {
-        onNet('clientRegisterHandler', (result: string) => {
+        onNet('/client/auth/register', (result: string) => {
             if (Boolean(result) === true) {
                 Helpers.sendNui('register', {
                     data: {

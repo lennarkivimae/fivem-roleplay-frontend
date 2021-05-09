@@ -1,5 +1,5 @@
-import Globals from "../../globals";
-import Helpers from "../../helpers/helpers";
+import Globals from "../../../globals";
+import Helpers from "../../../helpers/helpers";
 
 interface ILoginData {
     password: string
@@ -11,15 +11,11 @@ export default class Login {
     }
 
     init(): void {
-        /*RegisterCommand('login', (source: number, args: string[]) => {
-            this.loginHandler(args[0]);
-        }, false);*/
-
-        this.registerNUICallback();
+        this.registerRoute();
     }
 
-    registerNUICallback(): void {
-        Helpers.registerNuiRoute('login', (data: ILoginData) => {
+    registerRoute(): void {
+        Helpers.registerNuiRoute('/client/auth/login', (data: ILoginData) => {
             if (data.password) {
                 this.loginHandler(data.password);
 
@@ -46,6 +42,6 @@ export default class Login {
             return;
         }
 
-        emitNet('serverLoginHandler', [playerServerId, playerName, password]);
+        emitNet('/server/auth/login', [playerServerId, playerName, password]);
     }
 }

@@ -36,7 +36,7 @@ export default class Transfer {
                 const playerId = Helpers.getPlayerServerId(PlayerId());
                 const targetId = Helpers.getPlayerServerId(Helpers.getConnectedPlayerId(data.playerName));
 
-                emitNet('serverTransferFunds', [Globals.token, playerId, targetId, playerName, targetName, data.amount]);
+                emitNet('/server/transfer', [Globals.token, playerId, targetId, playerName, targetName, data.amount]);
 
                 return;
             }

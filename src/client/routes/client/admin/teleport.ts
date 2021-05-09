@@ -4,7 +4,7 @@ interface IData {
     targetCoords: number[]
 }
 
-export default class TeleportHandler {
+export default class Teleport {
     private data: IData;
 
     constructor() {
@@ -12,7 +12,7 @@ export default class TeleportHandler {
     }
 
     init(): void {
-        onNet('clientTeleportHandler', (data: IData) => {
+        onNet('/client/admin/teleport', (data: IData) => {
             this.data = data;
             this.teleportHandler();
         })

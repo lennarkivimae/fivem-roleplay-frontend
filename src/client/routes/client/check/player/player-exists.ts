@@ -1,12 +1,12 @@
-import Helpers from "../../helpers/helpers";
+import Helpers from "../../../../helpers/helpers";
 
-export default class DoesPlayerExist {
+export default class PlayerExists {
     constructor() {
         this.init();
     }
 
     init(): void {
-        onNet('clientDoesPlayerExist', (result: string) => {
+        onNet('/client/check/player/exist', (result: string) => {
             const doesUserExist: string = result;
             SetNuiFocus(true, true);
 

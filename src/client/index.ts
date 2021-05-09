@@ -1,5 +1,4 @@
 import Commands from "./commands/commands";
-import Events from "./events/events";
 import Globals from "./globals";
 import Helpers from "./helpers/helpers";
 
@@ -11,7 +10,6 @@ class Client {
     init(): void {
         this.loadEventHandler();
         NetworkSetFriendlyFireOption(true);
-        this.registerEvents();
         this.registerCommands();
     }
 
@@ -53,10 +51,6 @@ class Client {
 
     registerGlobals(): void {
         new Globals;
-    }
-
-    registerEvents(): void {
-        new Events;
     }
 }
 

@@ -14,9 +14,9 @@ export default class Helpers {
     }
 
     //eslint-disable-next-line
-    static sendNui(module: string, data: any): void {
+    static sendNui(route: string, data: any): void {
         data.type = 'gui';
-        data.module = module;
+        data.route = route;
         SendNuiMessage(JSON.stringify(data));
     }
 
@@ -53,7 +53,7 @@ export default class Helpers {
 
     //eslint-disable-next-line
     static consoleLog(message: any): void {
-        emitNet('clientLog', [`${message}`])
+        emitNet('/server/log', [`${message}`])
     }
 
     static isPlayerConnected(playerName: string): boolean {

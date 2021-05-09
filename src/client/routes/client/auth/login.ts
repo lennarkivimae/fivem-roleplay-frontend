@@ -1,7 +1,7 @@
-import AdminCommands from "../../commands/admin/admin-commands";
-import Transaction from "../../commands/transaction/transaction";
-import Globals from "../../globals";
-import Helpers from "../../helpers/helpers";
+import AdminCommands from "../../../commands/admin/admin-commands";
+import Transaction from "../../../commands/transaction/transaction";
+import Globals from "../../../globals";
+import Helpers from "../../../helpers/helpers";
 
 interface IUserData {
     token: string,
@@ -10,13 +10,13 @@ interface IUserData {
     bank: number
 }
 
-export default class LoginHandler {
+export default class Login {
     constructor() {
         this.init();
     }
 
     init(): void {
-        onNet('clientLoginHandler', (data: IUserData) => {
+        onNet('/client/auth/login', (data: IUserData) => {
             const role: string = data.role;
             Globals.token = data.token;
             const playerName: string = GetPlayerName(PlayerId());

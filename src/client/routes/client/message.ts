@@ -1,12 +1,12 @@
 import Helpers from "../../helpers/helpers";
 
-export default class ReceiveServerMessage {
+export default class Message {
     constructor() {
         this.init();
     }
 
     init(): void {
-        onNet('receiveServerMessage', (args: string[]) => {
+        onNet('/client/receive/message', (args: string[]) => {
             const messageLevel: string = args[0];
             const message: string = args[1];
 
