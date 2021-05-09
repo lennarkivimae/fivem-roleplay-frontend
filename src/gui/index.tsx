@@ -20,7 +20,7 @@ const App = (): JSX.Element => {
     /*const dispatch = useDispatch();
     dispatch(setRoute('/'));*/
 
-    const [data, setData] = useState( {} as IGUIData );
+    const [data, setData] = useState( { funds: {bank: 0, inventory: 0 }} as IGUIData );
     const [route, setRoute] = useState('/');
 
     //eslint-disable-next-line
@@ -29,13 +29,21 @@ const App = (): JSX.Element => {
             setRoute(event.data.route);
             setData({
                 ...data,
-                ...event.data.data
+                ...event.data
             });
         }
     });
 
+    function set() {
+        setRoute('inventory');
+        setData({
+            inventory: inventoryConfig.context.data
+        })
+    }
+
     return (
         <>
+            <button onClick={set}>asdf</button>
             <Route to='login' current={route}>
                 <Login />
             </Route>

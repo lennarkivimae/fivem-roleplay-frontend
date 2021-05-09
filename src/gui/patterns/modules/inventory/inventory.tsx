@@ -26,21 +26,6 @@ const Inventory = (props: IInventoryProps): JSX.Element => {
     const [activePanel, setActivePanel] = useState('equipped');
     const [equippedItems, setEquippedItems] = useState(getEquippedItemsFromGear());
 
-    function changeActiveEquipment(event: React.MouseEvent): void {
-        event.preventDefault();
-
-        const inventoryAction: string = event.currentTarget.getAttribute('data-button');
-        const inventoryItemId = event.currentTarget.closest('.inventory-item').getAttribute('data-id');
-
-        if (inventoryAction === 'unequip') {
-            //send item id to remove
-        } else {
-            // send item id to add
-        }
-
-        return;
-    }
-
     function changeInventoryPanel(event: React.MouseEvent): void {
         event.preventDefault();
 
@@ -120,7 +105,6 @@ const Inventory = (props: IInventoryProps): JSX.Element => {
                           active={ activePanel === 'equipped' }
                 />
                 <Gear class={'inventory__gear'}
-                      changeActiveEquipment={changeActiveEquipment}
                       weapons={props.gear.weapons}
                       utility={props.gear.utility}
                       active={ activePanel === 'gear' }

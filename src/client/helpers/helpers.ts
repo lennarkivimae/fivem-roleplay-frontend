@@ -15,6 +15,7 @@ export default class Helpers {
 
     //eslint-disable-next-line
     static sendNui(module: string, data: any): void {
+        data.type = 'gui';
         data.module = module;
         SendNuiMessage(JSON.stringify(data));
     }

@@ -1,11 +1,11 @@
 import React from 'react';
 import InventoryItem from '../inventory-item/inventory-item';
+import Helpers from '../../helpers/helpers';
 
 interface IGearProps {
     class: string;
     modifier?: string;
     active?: boolean;
-    changeActiveEquipment: ((event: React.MouseEvent) => void);
     weapons?: IGearWeapon[],
     utility?: IGearUtility[],
 }
@@ -28,6 +28,17 @@ export interface IGearUtility {
 }
 
 const Gear = (props: IGearProps): JSX.Element => {
+    function changeActiveEquipment(event: React.MouseEvent): void {
+        event.preventDefault();
+
+        const inventoryAction: string = event.currentTarget.getAttribute('data-action');
+        const inventoryItemId = event.currentTarget.closest('.inventory-item').getAttribute('data-id');
+
+        Helpers.nuiSend(`${inventoryAction}`, {
+            equipmentId: inventoryItemId
+        });
+    }
+
     return (
         <div className={`gear ${props.class} ${props.modifier} ${props.active ? 'is-active' : ''}`} data-tab={'gear'}>
             {
@@ -42,7 +53,7 @@ const Gear = (props: IGearProps): JSX.Element => {
                                                   active={weapon.active}
                                                   image={weapon.image}
                                                   name={weapon.image}
-                                                  onClick={props.changeActiveEquipment}
+                                                  onClick={changeActiveEquipment}
                                                   type={weapon.type}
                             />
                         })
@@ -62,7 +73,7 @@ const Gear = (props: IGearProps): JSX.Element => {
                                                   image={utility.image}
                                                   name={utility.image}
                                                   amount={utility.amount}
-                                                  onClick={props.changeActiveEquipment}
+                                                  onClick={changeActiveEquipment}
                                                   type={utility.type}
                             />
                         })

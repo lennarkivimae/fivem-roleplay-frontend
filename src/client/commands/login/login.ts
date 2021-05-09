@@ -11,9 +11,9 @@ export default class Login {
     }
 
     init(): void {
-        RegisterCommand('login', (source: number, args: string[]) => {
+        /*RegisterCommand('login', (source: number, args: string[]) => {
             this.loginHandler(args[0]);
-        }, false);
+        }, false);*/
 
         this.registerNUICallback();
     }
