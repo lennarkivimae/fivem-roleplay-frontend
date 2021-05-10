@@ -5,7 +5,7 @@ interface ILoginData {
     password: string
 }
 
-export default class Login {
+export default class GuiLogin {
     constructor() {
         this.init();
     }

@@ -1,6 +1,6 @@
 import Helpers from "../../helpers/helpers";
 
-export default class Message {
+export default class ClientMessage {
     constructor() {
         this.init();
     }

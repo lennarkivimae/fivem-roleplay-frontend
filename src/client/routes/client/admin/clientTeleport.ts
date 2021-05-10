@@ -4,7 +4,7 @@ interface IData {
     targetCoords: number[]
 }
 
-export default class Teleport {
+export default class ClientTeleport {
     private data: IData;
 
     constructor() {

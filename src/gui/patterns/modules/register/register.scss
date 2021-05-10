@@ -7,7 +7,7 @@
     background-color: rgba($color-black, .7);
     color: $color-white;
     padding: 30px;
-    width: 320px;
+    width: 420px;
     transition: opacity $transition-duration $transition-easing;
 }
 
@@ -26,6 +26,11 @@
 
 .register__subtitle {
     color: $color-green;
+    margin-top: 8px;
+}
+
+.register__languages {
+    margin-top: 15px;
 }
 
 .register__form {

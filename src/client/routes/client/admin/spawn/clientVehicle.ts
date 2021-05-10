@@ -2,7 +2,7 @@ interface IPayload {
     vehicleHash: number
 }
 
-export default class Vehicle {
+export default class ClientVehicle {
     private data: IPayload;
 
     constructor() {

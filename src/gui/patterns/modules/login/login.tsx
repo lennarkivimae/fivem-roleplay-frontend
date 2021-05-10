@@ -15,7 +15,7 @@ function changeHandler(event: React.FormEvent<HTMLInputElement>): void {
 function clickHandler(event: React.MouseEvent): void {
     event.preventDefault();
 
-    Helpers.nuiSend('login', {
+    Helpers.nuiSend('/client/auth/login', {
         password: password
     });
 }

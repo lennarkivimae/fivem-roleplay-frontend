@@ -1,6 +1,6 @@
 import Helpers from "../../../helpers/helpers";
 
-export default class Register {
+export default class ClientRegister {
     constructor() {
         this.init();
     }

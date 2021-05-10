@@ -1,6 +1,6 @@
 import Helpers from "../../../../helpers/helpers";
 
-export default class PlayerExists {
+export default class ClientPlayerExists {
     constructor() {
         this.init();
     }

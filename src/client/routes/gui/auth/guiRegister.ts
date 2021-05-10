@@ -1,15 +1,11 @@
 import Helpers from "../../../helpers/helpers";
 
 interface IPayload {
-    data: IPayloadData;
-}
-
-interface IPayloadData {
     password: string,
     passwordConfirmation: string
 }
 
-export default class Register {
+export default class GuiRegister {
     constructor() {
         this.init();
     }
@@ -20,8 +16,8 @@ export default class Register {
 
     registerRoute(): void {
         Helpers.registerNuiRoute('/client/auth/register', (payload: IPayload) => {
-            const password: string = payload.data.password;
-            const confirmationPassword: string = payload.data.passwordConfirmation;
+            const password: string = payload.password;
+            const confirmationPassword: string = payload.passwordConfirmation;
 
             if (password && confirmationPassword) {
                 this.registerHandler(password, confirmationPassword);

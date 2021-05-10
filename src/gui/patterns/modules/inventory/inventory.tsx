@@ -24,7 +24,7 @@ interface IInventoryEquippedProps {
 
 const Inventory = (props: IInventoryProps): JSX.Element => {
     const [activePanel, setActivePanel] = useState('equipped');
-    const [equippedItems, setEquippedItems] = useState(getEquippedItemsFromGear());
+    const [equippedItems] = useState(getEquippedItemsFromGear());
 
     function changeInventoryPanel(event: React.MouseEvent): void {
         event.preventDefault();

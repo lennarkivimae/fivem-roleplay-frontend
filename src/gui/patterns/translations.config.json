@@ -27,7 +27,8 @@
     "pistol": "Pistol",
     "primary": "Primary",
     "secondary": "Secondary",
-    "utility": "Utility"
+    "utility": "Utility",
+    "choose-language": "Choose language"
   },
   "et": {
     "cash": "Sula",
@@ -57,6 +58,7 @@
     "pistol":  "Püstol",
     "primary":  "Primaarne",
     "secondary": "Sekundaarne",
-    "utility": "Utiliit"
+    "utility": "Utiliit",
+    "choose-language": "Vali keel"
   }
 }

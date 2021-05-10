@@ -10,7 +10,7 @@ interface IUserData {
     bank: number
 }
 
-export default class Login {
+export default class ClientLogin {
     constructor() {
         this.init();
     }

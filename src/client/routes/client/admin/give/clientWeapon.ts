@@ -1,4 +1,4 @@
-export default class Weapon {
+export default class ClientWeapon {
     constructor() {
         this.init();
     }

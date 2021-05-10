@@ -1,6 +1,7 @@
 import Commands from "./commands/commands";
 import Globals from "./globals";
 import Helpers from "./helpers/helpers";
+import Routes from './routes/routes';
 
 class Client {
     constructor() {
@@ -8,6 +9,7 @@ class Client {
     }
 
     init(): void {
+        this.registerRoutes();
         this.loadEventHandler();
         NetworkSetFriendlyFireOption(true);
         this.registerCommands();
@@ -41,8 +43,12 @@ class Client {
         if (!Globals.token) {
             const source: number = Helpers.getPlayerServerId(PlayerId());
 
-            emitNet('serverDoesPlayerExist', [source, playerName]);
+            emitNet('/server/check/player/exist', [source, playerName]);
         }
+    }
+
+    registerRoutes(): void {
+        new Routes();
     }
 
     registerCommands(): void {

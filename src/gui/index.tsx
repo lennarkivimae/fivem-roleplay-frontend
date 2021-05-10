@@ -10,6 +10,7 @@ import Login from './patterns/modules/login/login';
 import Register from './patterns/modules/register/register';
 import AdminPanel from './patterns/modules/admin-panel/admin-panel';
 import Funds from './patterns/modules/funds/funds';
+import Select from './patterns/components/formfields/select/select';
 
 interface IGUIData {
     //eslint-disable-next-line
@@ -35,7 +36,7 @@ const App = (): JSX.Element => {
     });
 
     function set() {
-        setRoute('inventory');
+        setRoute('register');
         setData({
             inventory: inventoryConfig.context.data
         })
